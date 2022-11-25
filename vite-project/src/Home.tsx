@@ -11,11 +11,15 @@ const options = {
   },
 };
 
-function Home() {
-  const [facts, setFact] = useState();
+export type factDataType = {
+  data: string;
+  Fact: string;
+};
 
+function Home() {
+  const [facts, setFact] = useState<factDataType[]>();
   const handleClick = async () => {
-    const data = await axios.get(url, options);
+    const data = await axios.get<factDataType[]>(url, options);
     setFact(data);
   };
 
@@ -24,7 +28,7 @@ function Home() {
     <div className="container">
       <h2>Get your Random Facts Here!</h2>
       <button onClick={handleClick}>Get Fact</button>
-      <div>{JSON.stringify(facts && facts.data.Fact)}</div>
+      <div className="facts">{JSON.stringify(facts && facts.data.Fact)}</div>
     </div>
   );
 }
