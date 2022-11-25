@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Actor');
+
+body {
+  font-family: 'Actor';font-size: 22px;
+ }
+
+.navHead{
+color: #008080;
+}
+
+.links a {
+  margin-right:10px;
+  text-decoration: none;
+  color: black;
+}
