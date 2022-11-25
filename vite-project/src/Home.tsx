@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const url = `https://random-facts2.p.rapidapi.com/getfact`;
