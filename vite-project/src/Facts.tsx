@@ -1,15 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const url = `https://random-facts2.p.rapidapi.com/getfact`;
-
-const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "458d304e3bmsh5348829f8d379b1p138a54jsn0f0c995f2b45",
-    "X-RapidAPI-Host": "random-facts2.p.rapidapi.com",
-  },
-};
+const url = `https://uselessfacts.jsph.pl/random.json?language=en`;
 
 export type factDataType = {
   data: string;
@@ -20,8 +12,8 @@ function Facts() {
   const [facts, setFact] = useState<factDataType[]>();
   let promises = [];
 
-  for (let i = 0; i < 5; i++) {
-    promises.push(axios.get<factDataType[]>(url, options));
+  for (let i = 0; i < 1; i++) {
+    promises.push(axios.get<factDataType[]>(url));
   }
 
   Promise.all(promises).then((data) => console.log(data));
@@ -30,7 +22,7 @@ function Facts() {
   return (
     <div className="container">
       <h2>All Facts</h2>
-      <div className="facts">{JSON.stringify(facts && facts.data)}</div>
+      <div className="facts">{JSON.stringify(promises)}</div>
     </div>
   );
 }
